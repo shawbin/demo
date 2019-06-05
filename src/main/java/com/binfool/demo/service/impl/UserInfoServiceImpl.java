@@ -1,9 +1,9 @@
 package com.binfool.demo.service.impl;
 
-import com.binfool.demo.DO.UserInfoDO;
+import com.binfool.demo.domain.UserInfo;
 import com.binfool.demo.constant.DBTypeEnum;
 import com.binfool.demo.framework.SetDataSource;
-import com.binfool.demo.mapper.UserInfoDOMapper;
+import com.binfool.demo.mapper.UserInfoMapper;
 import com.binfool.demo.service.UserInfoService;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class UserInfoServiceImpl implements UserInfoService {
 
     @Resource
-    private UserInfoDOMapper userInfoDOMapper;
+    private UserInfoMapper userInfoMapper;
 
     /**
      * 根据主键查询
@@ -27,7 +27,7 @@ public class UserInfoServiceImpl implements UserInfoService {
      */
     @SetDataSource(value = DBTypeEnum.SLAVE)
     @Override
-    public UserInfoDO selectByPrimaryKey(Long id) {
-        return userInfoDOMapper.selectByPrimaryKey(id);
+    public UserInfo selectByPrimaryKey(Long id) {
+        return userInfoMapper.selectByPrimaryKey(id);
     }
 }

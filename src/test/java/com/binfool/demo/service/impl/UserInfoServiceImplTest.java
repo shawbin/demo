@@ -1,6 +1,6 @@
 package com.binfool.demo.service.impl;
 
-import com.binfool.demo.DO.UserInfoDO;
+import com.binfool.demo.domain.UserInfo;
 import com.binfool.demo.service.UserInfoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +25,7 @@ public class UserInfoServiceImplTest {
 
     @Test
     public void selectByPrimaryKey() {
-        UserInfoDO userInfoDO = userInfoService.selectByPrimaryKey(1L);
-        LOGGER.info("userInfoDO==>{}", userInfoDO.toString());
+        UserInfo userInfo = userInfoService.selectByPrimaryKey(1L);
+        LOGGER.info("userInfo==>{}", userInfo.toString());
     }
 }

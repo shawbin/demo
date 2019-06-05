@@ -1,6 +1,6 @@
 package com.binfool.demo.service;
 
-import com.binfool.demo.DO.UserInfoDO;
+import com.binfool.demo.domain.UserInfo;
 
 /**
  * 用户信息service
@@ -14,5 +14,5 @@ public interface UserInfoService {
      * @param id
      * @return
      */
-    UserInfoDO selectByPrimaryKey(Long id);
+    UserInfo selectByPrimaryKey(Long id);
 }

@@ -1,6 +1,7 @@
 package com.binfool.demo.controller;
 
-import com.binfool.demo.DO.UserInfoDO;
+import com.binfool.demo.domain.UserInfo;
+import com.binfool.demo.service.DemoService;
 import com.binfool.demo.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ public class DemoController {
     @Autowired
     private UserInfoService userInfoService;
 
+    @Autowired
+    private DemoService demoService;
+
     @GetMapping(value = "/index")
     public String index(){
         return "home";
@@ -28,7 +32,14 @@ public class DemoController {
 
     @ResponseBody
     @GetMapping(value = "/getUserInfo/{id}")
-    public UserInfoDO getUserInfo(@PathVariable("id") Long id){
+    public UserInfo getUserInfo(@PathVariable("id") Long id){
         return userInfoService.selectByPrimaryKey(id);
     }
+
+    @ResponseBody
+    @GetMapping(value = "/test/rabbitmq/send")
+    public String testRabbitmq(){
+        return demoService.testRabbitmq();
+    }
+
 }
